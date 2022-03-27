@@ -52,5 +52,21 @@ namespace BackAplicacionPT.DataAccess.Cliente
 
         }
 
+
+        public bool ActualizarCliente(BackAplicacionPT.Models.Cliente clientes)
+        {
+            string query = @"update  cliente set
+                            primerNombre = @Nombre ,primerApellido = @Apellido,Edad = @Edad,documentoIdentidad = @DocIdenti where idCliente = @idCliente";
+            SqlParameter[] sp = new SqlParameter[5];
+            sp[0] = new SqlParameter("@Nombre", clientes.priNom);
+            sp[1] = new SqlParameter("@Apellido", clientes.priApe);
+            sp[2] = new SqlParameter("@Edad", clientes.Edad);
+            sp[3] = new SqlParameter("@DocIdenti", clientes.docIdenti);
+            sp[4] = new SqlParameter("@idCliente", clientes.idCliente);
+
+            return conexion.ejecutar(query, sp);
+
+        }
+
     }
 }

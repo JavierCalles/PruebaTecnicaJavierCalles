@@ -26,6 +26,12 @@ namespace PruebaTecnicaJavierCalles.RemoteServices.Clientes
             return cliente;
         }
 
+        public bool ActualizarCliente(ClientesModel clientes)
+        {
+
+            var result = ApiConsumer.Consume<bool>("Cliente", "ActualizarCliente", clientes, RestSharp.Method.PUT);
+            return result;
+        }
 
     }
 }

@@ -31,5 +31,15 @@ namespace BackAplicacionPT.Controllers
            return _cliente.ConsultarCliente();
 
         }
+
+        [HttpPut]
+        [Route("Cliente/ActualizarCliente")]
+        public bool ActualizarCliente([FromBody] Cliente cliente)
+        {
+
+            return _cliente.ActualizarCliente(cliente);
+
+        }
+
     }
 }

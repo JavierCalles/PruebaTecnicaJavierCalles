@@ -23,5 +23,11 @@ namespace PruebaTecnicaJavierCalles.BusinessLogic.Clientes
         {
            return  ClientesService.ConsultarCliente();  
         }
+
+        public bool ActualizarCliente(ClientesModel clientes)
+        {
+            return ClientesService.ActualizarCliente(clientes);
+
+        }
     }
 }

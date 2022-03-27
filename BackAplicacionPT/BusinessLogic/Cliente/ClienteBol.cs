@@ -23,5 +23,11 @@ namespace BackAplicacionPT.BusinessLogic.Cliente
          
         }
 
+        public bool ActualizarCliente(BackAplicacionPT.Models.Cliente clientes)
+        {
+            return ClientesService.ActualizarCliente(clientes);
+
+        }
+
     }
 }

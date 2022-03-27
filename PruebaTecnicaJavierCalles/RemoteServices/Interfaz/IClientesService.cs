@@ -12,6 +12,7 @@ namespace PruebaTecnicaJavierCalles.RemoteServices.Interfaz
     {
         bool IngresarCliente(ClientesModel clientes);
         ListadoCliente ConsultarCliente();
+        bool ActualizarCliente(ClientesModel clientes);
 
 
     }

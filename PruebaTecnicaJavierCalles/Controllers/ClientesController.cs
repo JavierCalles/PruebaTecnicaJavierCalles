@@ -38,6 +38,25 @@ namespace PruebaTecnicaJavierCalles.Controllers
             }
         }
 
+        [HttpPost]
+        public void ActualizarCliente(string DocIdenti, string PrNom, string PrApe, int Edad, string IdCliente)
+        {
+
+            ClientesModel clientes = new ClientesModel();
+            clientes.docIdenti = DocIdenti;
+            clientes.priNom = PrNom;
+            clientes.priApe = PrApe;
+            clientes.Edad = Edad;
+            clientes.idCliente = Convert.ToInt32(IdCliente);
+
+            if (clienteBol.ActualizarCliente(clientes))
+            {
+                TempData["Mensaje"] = "Exito";
+            }
+        }
+
+
+
     }
 }
     
