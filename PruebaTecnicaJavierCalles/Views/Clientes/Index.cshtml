@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Clientes";
+}
+@using PruebaTecnicaJavierCalles.Models;
+@model  ListadoCliente
+
+    <h1><span class="badge badge-light">Listado de clientes</span></h1>
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                Documento identificacion:
+                <input type="number" class="form-control" maxlength="9" id="txtDocumento" />
+            </div>
+            <div class="col-md">
+                Primer nombre:
+                <input type="text" class="form-control" id="txtPrNombre" />
+            </div>
+            <div class="col-md">
+                Primer apellido:
+                <input type="text" class="form-control" id="txtPrApe" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                Edad:<input type="number" class="form-control" maxlength="8" id="txtEdad" />
+            </div>
+            <div class="col-sm">
+                <br />
+                <button type="button" class="btn btn-outline-primary" onclick="Insertar()">Ingresar</button>
+           </div>
+
+        </div>
+
+
+    </div>
+<br />
+<br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Doc Identidad</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Edad</th>
+                <th scope="col">FechaIngreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.clientes.Count(); ++i)
+            {
+            <tr>
+                <td>   @Html.DisplayTextFor(m => m.clientes[i].docIdenti) </td>
+                <td>        @Html.DisplayTextFor(m => m.clientes[i].priNom) </td>
+                <td>        @Html.DisplayTextFor(m => m.clientes[i].priApe) </td>
+                <td>        @Html.DisplayTextFor(m => m.clientes[i].Edad) </td>
+                <td>        @Html.DisplayTextFor(m => m.clientes[i].FechaIngreso) </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+    <script>
+    var UrlInsertar = "@Url.Action("IngresarCliente", "Clientes")";
+    </script>
+
+    <script src="~/Scripts/Clientes/Clientes.js"></script>
+
+
+
+
+
+
+
+
+
