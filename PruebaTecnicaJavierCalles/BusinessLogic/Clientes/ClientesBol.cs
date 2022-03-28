@@ -29,5 +29,11 @@ namespace PruebaTecnicaJavierCalles.BusinessLogic.Clientes
             return ClientesService.ActualizarCliente(clientes);
 
         }
+
+        public bool EliminarCliente(int idCliente)
+        {
+            return ClientesService.EliminarCliente(idCliente);
+
+        }
     }
 }

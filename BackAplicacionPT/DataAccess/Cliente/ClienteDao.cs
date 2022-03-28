@@ -68,5 +68,15 @@ namespace BackAplicacionPT.DataAccess.Cliente
 
         }
 
+        public bool EliminarCliente(int idCliente)
+        {
+            string query = @"delete cliente where idCliente = @idCliente";
+            SqlParameter[] sp = new SqlParameter[1];
+            sp[0] = new SqlParameter("@idCliente", idCliente);
+
+            return conexion.ejecutar(query, sp);
+
+        }
+
     }
 }

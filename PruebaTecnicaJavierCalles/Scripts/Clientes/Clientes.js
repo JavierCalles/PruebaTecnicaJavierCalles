@@ -64,7 +64,33 @@ function Actualizar() {
 }
 
 
+function eliminar(IdCliente) {
+
+
+
+
+    $.post(UrlDelete,
+        {
+            IdCliente: IdCliente
+        })
+        .done(function (data) {
+
+            location.reload();
+
+        }).fail(function () {
+            alert("Error al actualizar cliente");
+        });
+
+
+}
+
+
+
+
+
+
 function mostrarModal(idcliente,Documento, Nombre, Apellido, Edad) {
+
 
     $("#txtIdDocumento").val(Documento);
     $("#txtDocumentoUpdate").val(Documento);

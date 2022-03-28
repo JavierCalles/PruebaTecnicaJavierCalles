@@ -29,5 +29,12 @@ namespace BackAplicacionPT.BusinessLogic.Cliente
 
         }
 
+        public bool EliminarCliente(int idCliente)
+        {
+            return ClientesService.EliminarCliente(idCliente);
+
+        }
+
+
     }
 }

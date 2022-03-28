@@ -41,6 +41,7 @@
         <thead>
             <tr>
                 <th></th>
+                <th></th>
                 <th scope="col">Doc Identidad</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
@@ -52,7 +53,8 @@
             @for (int i = 0; i < Model.clientes.Count(); ++i)
             {
             <tr>
-                <td> <button class="btn btn-outline-warning" onclick="mostrarModal( '@Html.ValueFor(m => m.clientes[i].idCliente)','@Html.ValueFor(m => m.clientes[i].docIdenti)','@Html.ValueFor(m => m.clientes[i].priNom)','@Html.ValueFor(m => m.clientes[i].priApe)','@Html.ValueFor(m => m.clientes[i].Edad)' )">ACTUALIZAR</button></td>
+                <td> <button class="btn btn-outline-warning" onclick="mostrarModal( '@Html.ValueFor(m => m.clientes[i].idCliente)','@Html.ValueFor(m => m.clientes[i].docIdenti)','@Html.ValueFor(m => m.clientes[i].priNom)','@Html.ValueFor(m => m.clientes[i].priApe)','@Html.ValueFor(m => m.clientes[i].Edad)' )">Actualizar</button></td>
+                <td> <button class="btn btn-outline-danger" onclick="eliminar( '@Html.ValueFor(m => m.clientes[i].idCliente)')">Eliminar</button></td>
                 <td>   @Html.DisplayTextFor(m => m.clientes[i].docIdenti) </td>
                 <td>        @Html.DisplayTextFor(m => m.clientes[i].priNom) </td>
                 <td>        @Html.DisplayTextFor(m => m.clientes[i].priApe) </td>
@@ -74,6 +76,7 @@
     <script>
         var UrlInsertar = "@Url.Action("IngresarCliente", "Clientes")";
         var UrlUpdate = "@Url.Action("ActualizarCliente", "Clientes")";
+        var UrlDelete = "@Url.Action("EliminarCliente", "Clientes")";
     </script>
 
     <script src="~/Scripts/Clientes/Clientes.js"></script>

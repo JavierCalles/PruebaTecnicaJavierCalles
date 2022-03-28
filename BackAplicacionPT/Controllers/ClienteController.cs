@@ -41,5 +41,16 @@ namespace BackAplicacionPT.Controllers
 
         }
 
+
+        [HttpDelete]
+        [Route("Cliente/EliminarCliente")]
+        public bool EliminarCliente([FromBody] int idcliente)
+        {
+
+            return _cliente.EliminarCliente(idcliente);
+
+        }
+
+
     }
 }

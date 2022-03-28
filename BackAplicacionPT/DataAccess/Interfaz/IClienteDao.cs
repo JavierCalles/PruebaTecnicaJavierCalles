@@ -13,5 +13,6 @@ namespace BackAplicacionPT.DataAccess.Interfaz
         List<BackAplicacionPT.Models.Cliente> ConsultarCliente();
 
         bool ActualizarCliente(BackAplicacionPT.Models.Cliente clientes);
+        bool EliminarCliente(int idCliente);
     }
 }

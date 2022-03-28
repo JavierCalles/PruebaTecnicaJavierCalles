@@ -33,5 +33,12 @@ namespace PruebaTecnicaJavierCalles.RemoteServices.Clientes
             return result;
         }
 
+        public bool EliminarCliente(int idCliente)
+        {
+
+            var result = ApiConsumer.Consume<bool>("Cliente", "EliminarCliente", idCliente, RestSharp.Method.DELETE);
+            return result;
+        }
+
     }
 }

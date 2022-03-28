@@ -13,5 +13,6 @@ namespace PruebaTecnicaJavierCalles.BusinessLogic.Interfaz
         bool IngresarCliente(ClientesModel clientes);
         ListadoCliente ConsultarCliente();
         bool ActualizarCliente(ClientesModel clientes);
+        bool EliminarCliente(int idCliente);
     }
 }

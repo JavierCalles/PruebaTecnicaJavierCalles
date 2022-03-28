@@ -55,7 +55,14 @@ namespace PruebaTecnicaJavierCalles.Controllers
             }
         }
 
-
+        [HttpPost]
+        public void EliminarCliente(int IdCliente)
+        {
+            if (clienteBol.EliminarCliente(IdCliente))
+            {
+                TempData["Mensaje"] = "Exito";
+            }
+        }
 
     }
 }
