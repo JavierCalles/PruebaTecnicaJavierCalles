@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -8,13 +9,13 @@ namespace BackAplicacionPT.DataAccess
 {
     public class Conexion:IConexion
     {
-
+        string cadena = ConfigurationManager.ConnectionStrings["SqlConexion"].ToString();
         public bool ejecutar(string query, SqlParameter[] sqlParameter)
         {
             try
             {
 
-                SqlConnection con = new SqlConnection("server = DESKTOP-6MBUAD3\\ARMANDOPC; database = PT_JAVIERCALLES;User ID=usuario;Password=R363teamo");
+                SqlConnection con = new SqlConnection(cadena);
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddRange(sqlParameter);
@@ -36,7 +37,7 @@ namespace BackAplicacionPT.DataAccess
             try
             {
 
-            SqlConnection con = new SqlConnection("server = DESKTOP-6MBUAD3\\ARMANDOPC; database = PT_JAVIERCALLES; integrated security = true");
+            SqlConnection con = new SqlConnection(cadena);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddRange(parameters);
