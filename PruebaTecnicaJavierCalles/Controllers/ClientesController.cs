@@ -25,42 +25,70 @@ namespace PruebaTecnicaJavierCalles.Controllers
         [HttpGet]
         public void IngresarCliente(string DocIdenti, string PrNom, string PrApe, int Edad)
         {
-
-            ClientesModel clientes = new ClientesModel();
-            clientes.docIdenti = DocIdenti;
-            clientes.priNom = PrNom;
-            clientes.priApe = PrApe;
-            clientes.Edad = Edad;
-
-            if (clienteBol.IngresarCliente(clientes))
+            try
             {
-                TempData["Mensaje"] = "Exito"; 
+                ClientesModel clientes = new ClientesModel();
+                clientes.docIdenti = DocIdenti;
+                clientes.priNom = PrNom;
+                clientes.priApe = PrApe;
+                clientes.Edad = Edad;
+
+                if (clienteBol.IngresarCliente(clientes))
+                {
+                    TempData["Mensaje"] = "Exito";
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Error";
+                }
+            }catch (Exception ex)
+            {
+                TempData["Mensaje"] = "Error";
             }
         }
 
         [HttpPost]
         public void ActualizarCliente(string DocIdenti, string PrNom, string PrApe, int Edad, string IdCliente)
         {
-
-            ClientesModel clientes = new ClientesModel();
-            clientes.docIdenti = DocIdenti;
-            clientes.priNom = PrNom;
-            clientes.priApe = PrApe;
-            clientes.Edad = Edad;
-            clientes.idCliente = Convert.ToInt32(IdCliente);
-
-            if (clienteBol.ActualizarCliente(clientes))
+            try
             {
-                TempData["Mensaje"] = "Exito";
+                ClientesModel clientes = new ClientesModel();
+                clientes.docIdenti = DocIdenti;
+                clientes.priNom = PrNom;
+                clientes.priApe = PrApe;
+                clientes.Edad = Edad;
+                clientes.idCliente = Convert.ToInt32(IdCliente);
+
+                if (clienteBol.ActualizarCliente(clientes))
+                {
+                    TempData["Mensaje"] = "Exito";
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Error";
+                }
+            }catch(Exception ex)
+            {
+                TempData["Mensaje"] = "Error";
             }
         }
 
         [HttpPost]
         public void EliminarCliente(int IdCliente)
         {
-            if (clienteBol.EliminarCliente(IdCliente))
+            try
             {
-                TempData["Mensaje"] = "Exito";
+                if (clienteBol.EliminarCliente(IdCliente))
+                {
+                    TempData["Mensaje"] = "Exito";
+                }
+                else
+                {
+                    TempData["Mensaje"] = "Error";
+                }
+            }catch(System.Exception ex)
+            {
+                TempData["Mensaje"] = "Error";
             }
         }
 

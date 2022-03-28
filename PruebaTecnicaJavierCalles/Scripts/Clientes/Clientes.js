@@ -9,26 +9,38 @@ function Insertar() {
     var Edad = $("#txtEdad").val();
 
 
+    if (DocIdenti != "" && PrNom != "" && PrApe != "" && Edad != "") {
+        if (DocIdenti.length > 4) {
+            if (Edad <= 150 && Edad >= 5) {
 
-    $.get(UrlInsertar,
-        {
-            DocIdenti: DocIdenti,
-            PrNom: PrNom,
-            PrApe: PrApe,
-            Edad: Edad
-            })
-            .done(function(data) {
-                $("#txtDocumento").val('');
-                $("#txtPrNombre").val('');
-                $("#txtPrApe").val('');
-                $("#txtEdad").val('');
+                $.get(UrlInsertar,
+                    {
+                        DocIdenti: DocIdenti,
+                        PrNom: PrNom,
+                        PrApe: PrApe,
+                        Edad: Edad
+                    })
+                    .done(function (data) {
+                        $("#txtDocumento").val('');
+                        $("#txtPrNombre").val('');
+                        $("#txtPrApe").val('');
+                        $("#txtEdad").val('');
 
-                location.reload();
+                        location.reload();
 
-            }).fail(function () {
-                alert("Error al ingresar cliente");
-            });
-
+                    }).fail(function () {
+                        alert("Error al ingresar cliente");
+                    });
+            } else
+                {
+                alert("La edad debe ser entre 5 y 150 años.");
+                }
+        } else {
+            alert("El documento de identidad debe tener al menos 5 digitos.");
+        }
+    } else {
+        alert("Debe completar todos los campos");
+    }
     
 }
 
@@ -43,23 +55,36 @@ function Actualizar() {
     var Edad = $("#txtEdadUpdate").val();
     var IdCliente = $("#txtIdCliente").val();
 
+    if (DocIdenti != "" && PrNom != "" && PrApe != "" && Edad != "") {
+        if (DocIdenti.length > 4) {
+            if (Edad <= 150 && Edad >= 5) {
 
-    $.post(UrlUpdate,
-        {
-            DocIdenti: DocIdenti,
-            PrNom: PrNom,
-            PrApe: PrApe,
-            Edad: Edad,
-            IdCliente: IdCliente
-        })
-        .done(function (data) {
-            
-            location.reload();
 
-        }).fail(function () {
-            alert("Error al actualizar cliente");
-        });
+        $.post(UrlUpdate,
+            {
+                DocIdenti: DocIdenti,
+                PrNom: PrNom,
+                PrApe: PrApe,
+                Edad: Edad,
+                IdCliente: IdCliente
+            })
+            .done(function (data) {
 
+                location.reload();
+
+            }).fail(function () {
+                alert("Error al actualizar cliente");
+            });
+
+            } else {
+                alert("La edad debe ser entre 5 y 150 años.");
+            }
+        } else {
+            alert("El documento de identidad debe tener al menos 5 digitos.");
+        }
+    } else {
+        alert("Debe completar todos los campos");
+    }
 
 }
 

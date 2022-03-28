@@ -21,8 +21,15 @@
     @{
         if (TempData["Mensaje"] != null)
         {
+            if (TempData["Mensaje"].ToString() == "Exito")
+            {
+                Html.RenderPartial("_MensajeExito");
 
-            Html.RenderPartial("_MensajeExito");
+            }
+            else if(TempData["Mensaje"].ToString() == "Error")
+            {
+                Html.RenderPartial("_MensajeError");
+            }
         }
     }
 

@@ -18,8 +18,13 @@ namespace BackAplicacionPT.Controllers
         [Route("Cliente/IngresarCliente")]
         public bool IngresarCliente([FromBody] Cliente cliente)
         {
-            
-           return  _cliente.IngresarCliente(cliente);
+            try
+            {
+                return _cliente.IngresarCliente(cliente);
+            }catch (Exception ex)
+            {
+                return false;
+            }
 
         }
 
@@ -27,8 +32,13 @@ namespace BackAplicacionPT.Controllers
         [Route("Cliente/ConsultarCliente")]
         public List<Cliente> IngresarCliente()
         {
-
+            try { 
            return _cliente.ConsultarCliente();
+            }catch (Exception ex)
+            {
+                List<Cliente> clientes = new List<Cliente>();
+                return clientes;
+            }
 
         }
 
@@ -36,8 +46,13 @@ namespace BackAplicacionPT.Controllers
         [Route("Cliente/ActualizarCliente")]
         public bool ActualizarCliente([FromBody] Cliente cliente)
         {
-
-            return _cliente.ActualizarCliente(cliente);
+            try
+            {
+                return _cliente.ActualizarCliente(cliente);
+            }catch(Exception ex)
+            {
+                return false;
+            }
 
         }
 
@@ -46,8 +61,13 @@ namespace BackAplicacionPT.Controllers
         [Route("Cliente/EliminarCliente")]
         public bool EliminarCliente([FromBody] int idcliente)
         {
-
-            return _cliente.EliminarCliente(idcliente);
+            try
+            {
+                return _cliente.EliminarCliente(idcliente);
+            }catch(Exception ex)
+            {
+                return false;
+            }
 
         }
 

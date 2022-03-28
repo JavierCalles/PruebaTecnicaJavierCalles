@@ -1,7 +1,9 @@
 ﻿
 $(document).ready(function () {
 
-    $('#exampleModal').modal('show')
+    $('#exitoModal').modal('show')
+
+    $('#errorModal').modal('show')
 });
 
 
